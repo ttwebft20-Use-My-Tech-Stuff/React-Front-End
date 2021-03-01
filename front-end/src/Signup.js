@@ -63,76 +63,94 @@ export default function Signup() {
     // Sign up needs first, last, username, email, zip, password and confirm
     <div className="signup-container">
       <h2>Sign up here!</h2>
-      <form onsubmit={ onSubmit }>
-        <label>First:
-        <input
-          name="first"
-          type="text"
-          value={formValues.first}
-          onChange={onChange}
-          />
-        </label>
+      <form onsubmit={onSubmit}>
+        
+        <div className="input">
+          <label>First:
+          <input
+            name="first"
+            type="text"
+            value={formValues.first}
+            onChange={onChange}
+            />
+          </label>
+        </div>
 
-        <label>Last:
-        <input
-          name="last"
-          type="text"
-          value={formValues.last}
-          onChange={onChange}
-          />
-        </label>
+        <div className="input">
+          <label>Last:
+          <input
+            name="last"
+            type="text"
+            value={formValues.last}
+            onChange={onChange}
+            />
+          </label>
+        </div>
 
-        <label>Username:
-        <input
-          name="username"
-          type="text"
-          value={formValues.username}
-          onChange={onChange}
-          />
-        </label>
+        <div className="input">
+          <label>Username:
+          <input
+            name="username"
+            type="text"
+            value={formValues.username}
+            onChange={onChange}
+            />
+          </label>
+        </div>
 
-        <label>Email:
-        <input
-          name="email"
-          type="text"
-          value={formValues.email}
-          onChange={onChange}
-          />
-        </label>
+        <div className="input">
+          <label>Email:
+          <input
+            name="email"
+            type="text"
+            value={formValues.email}
+            onChange={onChange}
+            />
+          </label>
+        </div>
 
-        <label>Zipcode:
-        <input
-          name="zipcode"
-          type="text"
-          value={formValues.zipcode}
-          onChange={onChange}
-          />
-        </label>
+        <div className="input">
+          <label>Zipcode:
+          <input
+            name="zipcode"
+            type="text"
+            value={formValues.zipcode}
+            onChange={onChange}
+            />
+          </label>
+        </div>
 
-        <label>Password:
-        <input
-          name="password"
-          type="text"
-          value={formValues.password}
-          onChange={onChange}
-          />
-        </label>
+        <div className="input">
+          <label>Password:
+          <input
+            name="password"
+            type="text"
+            value={formValues.password}
+            onChange={onChange}
+            />
+          </label>
+        </div>
 
-        <label>Confirm Password:
-        <input
-          name="confirm"
-          type="text"
-          value={formValues.confirm}
-          onChange={onChange}
-          />
-        </label>
+        <div className="input">
+          <label>Confirm Password:
+          <input
+            name="confirm"
+            type="text"
+            value={formValues.confirm}
+            onChange={onChange}
+            />
+          </label>
+        </div>
 
-        <button
-          name="submit"
-          type="submit"
-          disabled={ disabled }
-        >Submit</button>
-        <button>Cancel</button>
+        <div id="buttons">
+          <button
+            name="submit"
+            type="submit"
+            disabled={ disabled }
+          >Submit</button>
+          <button>Cancel</button>
+        </div>
+
 
         {confirmation && <p>Thanks for registering!</p>}
       </form>
