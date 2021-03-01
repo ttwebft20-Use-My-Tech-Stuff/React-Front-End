@@ -10,7 +10,7 @@ function Landing() {
         <nav id="nav">
           <ul>
             <li class="special">
-              <div>
+              <div id='nav-menu' >
                 <ul>
                   <li>
                     <a href="index.html">Home</a>
