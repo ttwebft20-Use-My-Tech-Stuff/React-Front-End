@@ -1,8 +1,8 @@
 // import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import * as yup from 'yup'
-import signupSchema from './validation/signupSchema'
-import './test.css'
+import signupSchema from '../validation/signupSchema'
+import '../test.css'
 
 const initialForm = {
   first: "",
@@ -45,7 +45,7 @@ export default function Signup() {
       .catch(err => {
         setFormErrors({ ...formErrors, [name]: err.errors[0] })
       })
-    
+
     setFormValues({ ...formValues, [name]: value })
   }
 
@@ -64,14 +64,14 @@ export default function Signup() {
     <div className="signup-container">
       <h2>Sign up here!</h2>
       <form onsubmit={onSubmit}>
-        
+
         <div className="input">
           <label>First:
           <input
-            name="first"
-            type="text"
-            value={formValues.first}
-            onChange={onChange}
+              name="first"
+              type="text"
+              value={formValues.first}
+              onChange={onChange}
             />
           </label>
         </div>
@@ -79,10 +79,10 @@ export default function Signup() {
         <div className="input">
           <label>Last:
           <input
-            name="last"
-            type="text"
-            value={formValues.last}
-            onChange={onChange}
+              name="last"
+              type="text"
+              value={formValues.last}
+              onChange={onChange}
             />
           </label>
         </div>
@@ -90,10 +90,10 @@ export default function Signup() {
         <div className="input">
           <label>Username:
           <input
-            name="username"
-            type="text"
-            value={formValues.username}
-            onChange={onChange}
+              name="username"
+              type="text"
+              value={formValues.username}
+              onChange={onChange}
             />
           </label>
         </div>
@@ -101,10 +101,10 @@ export default function Signup() {
         <div className="input">
           <label>Email:
           <input
-            name="email"
-            type="text"
-            value={formValues.email}
-            onChange={onChange}
+              name="email"
+              type="text"
+              value={formValues.email}
+              onChange={onChange}
             />
           </label>
         </div>
@@ -112,10 +112,10 @@ export default function Signup() {
         <div className="input">
           <label>Zipcode:
           <input
-            name="zipcode"
-            type="text"
-            value={formValues.zipcode}
-            onChange={onChange}
+              name="zipcode"
+              type="text"
+              value={formValues.zipcode}
+              onChange={onChange}
             />
           </label>
         </div>
@@ -123,10 +123,10 @@ export default function Signup() {
         <div className="input">
           <label>Password:
           <input
-            name="password"
-            type="text"
-            value={formValues.password}
-            onChange={onChange}
+              name="password"
+              type="text"
+              value={formValues.password}
+              onChange={onChange}
             />
           </label>
         </div>
@@ -134,10 +134,10 @@ export default function Signup() {
         <div className="input">
           <label>Confirm Password:
           <input
-            name="confirm"
-            type="text"
-            value={formValues.confirm}
-            onChange={onChange}
+              name="confirm"
+              type="text"
+              value={formValues.confirm}
+              onChange={onChange}
             />
           </label>
         </div>
@@ -146,11 +146,11 @@ export default function Signup() {
           <button
             name="submit"
             type="submit"
-            disabled={ disabled }
+            disabled={disabled}
           >Submit</button>
           <button>Cancel</button>
         </div>
-        
+
         <div className="errors">
           <div>{formErrors.first}</div>
           <div>{formErrors.last}</div>
