@@ -1,4 +1,7 @@
-import React from 'react';
+import React from "react";
+import { useEffect, useState } from "react";
+import * as yup from "yup";
+import loginSchema from "../validation/loginSchema";
 
 const initialFormValues = {
   uname: "",
@@ -8,69 +11,90 @@ const initialFormValues = {
 const initialFormErrors = {
   uname: "",
   psw: "",
-  
 };
+const initialDisabled = true;
 
+export default function Login() {
+  const [formValues, setFormValues] = useState(initialFormValues);
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
+  const [disabled, setDisabled] = useState(initialDisabled);
 
-export default function Login(props) {
-  const { values, submit, change, disabled, errors } = props;
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    yup
+      .reach(loginSchema, name)
+      .validate(value)
+      .then(() => {
+        setFormErrors({ ...formErrors, [name]: "" });
+      })
+      .catch((err) => {
+        setFormErrors({ ...formErrors, [name]: err.errors[0] });
+      });
+
+    setFormValues({ ...formValues, [name]: value });
+  };
 
   const onSubmit = (evt) => {
     evt.preventDefault();
-    submit();
+    onSubmit();
   };
 
-  const onChange = (evt) => {
-    const { name, value, type, checked } = evt.target;
-    const valueToUse = type === "checkbox" ? checked : value;
-    change(name, valueToUse);
-  }
+  useEffect(() => {
+    loginSchema.isValid(formValues).then((valid) => setDisabled(!valid));
+  }, [formValues]);
 
   return (
-    <form action="action_page.php" method="post">
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar" />
-  </div>
+    <div class="logincont">
+      <form onsubmit={onSubmit}>
+        <div class="textcontainer">
+          <label for="uname">
+            <b>Username</b>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="uname"
+            onChange={onChange}
+            value={formValues.uname}
+          />
 
-  <div class="textcontainer">
-    <label for="uname"><b>Username</b></label>
-    <input 
-    type="text" 
-    placeholder="Enter Username" 
-    name="uname" 
-    onChange={onChange}
-    value ={values.uname}>
-    </input>
+          <label for="psw">
+            <b>Password</b>
+          </label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            onChange={onChange}
+            value={formValues.psw}
+          />
 
-    <label for="psw"><b>Password</b></label>
-    <input 
-    type="password" 
-    placeholder="Enter Password" 
-    name="psw" 
-    onChange = {onChange}
-    value = {values.psw}> 
-    </input>
+          <button disabled={disabled} type="submit">
+            Login
+          </button>
+          <label>
+            <input
+              type="checkbox"
+              name="remember"
+              onChange={onChange}
+              values={formValues.remember}
+              Remember
+              me
+            />
+            Remember Me{" "}
+          </label>
+        </div>
 
-    <button disabled ={disabled} type="submit">Login</button>
-    <label>
-      <input 
-      type="checkbox" 
-      checked="checked" 
-      name="remember"
-      onChange={onChange}
-      values={values.remember}
-      > Remember me 
-      </input>
-    </label>
-  </div>
-
-  <div class="btncontainer">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-  <div className="errors">
-            <div>{errors.uname}</div>
-            <div>{errors.psw}</div>
-          </div>
-</form>
-  )
+        <div class="btncontainer">
+          <span class="psw">
+            Forgot <a href="#">Password?</a>
+          </span>
+        </div>
+        <div className="errors">
+          <div>{formErrors.uname}</div>
+          <div>{formErrors.psw}</div>
+        </div>
+      </form>
+    </div>
+  );
+}
