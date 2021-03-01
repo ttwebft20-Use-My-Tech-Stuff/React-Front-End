@@ -22,3 +22,7 @@ form {
 label {
   margin-right: 5px;
 }
+
+.errors {
+  color: red;
+}

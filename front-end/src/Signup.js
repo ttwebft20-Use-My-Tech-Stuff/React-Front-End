@@ -1,4 +1,4 @@
-import axios from 'axios'
+// import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import * as yup from 'yup'
 import signupSchema from './validation/signupSchema'
@@ -150,7 +150,16 @@ export default function Signup() {
           >Submit</button>
           <button>Cancel</button>
         </div>
-
+        
+        <div className="errors">
+          <div>{formErrors.first}</div>
+          <div>{formErrors.last}</div>
+          <div>{formErrors.username}</div>
+          <div>{formErrors.email}</div>
+          <div>{formErrors.zipcode}</div>
+          <div>{formErrors.password}</div>
+          <div>{formErrors.confirm}</div>
+        </div>
 
         {confirmation && <p>Thanks for registering!</p>}
       </form>
