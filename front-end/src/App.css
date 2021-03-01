@@ -3463,7 +3463,7 @@ button:disabled,
   z-index: 10002;
 }
 
-#menu ul {
+#nav-menu ul {
   list-style: none;
   padding: 0;
 }
