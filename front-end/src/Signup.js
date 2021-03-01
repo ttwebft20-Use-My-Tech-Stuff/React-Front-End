@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import * as yup from 'yup'
+import signupSchema from './validation/signupSchema'
+import './test.css'
 
 const initialForm = {
   first: "",
@@ -22,17 +25,19 @@ const initialFormErrors = {
 }
 
 const initialDisabled = true;
-const initialUsers = []
+// const initialUsers = []
+const initialConfirmation = [false]
 
 export default function Signup() {
-  const [users, setUsers] = useState(initialUsers)
+  // const [users, setUsers] = useState(initialUsers)
   const [formValues, setFormValues] = useState(initialForm)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
-  const [disabled, setDIsabled] = useState(initialDisabled)
+  const [disabled, setDisabled] = useState(initialDisabled)
+  const [confirmation, setConfirmation] = useState(initialConfirmation)
 
   const onChange = (e) => {
     const { name, value } = e.target
-    yup.reach(formSchema, name)
+    yup.reach(signupSchema, name)
       .validate(value)
       .then(() => {
         setFormErrors({ ...formErrors, [name]: '' })
@@ -44,11 +49,21 @@ export default function Signup() {
     setFormValues({ ...formValues, [name]: value })
   }
 
+  const onSubmit = () => {
+    setConfirmation(true)
+    // axios.post('/', formValues)
+    //   .then(res => { })
+  }
+
+  useEffect(() => {
+    signupSchema.isValid(formValues).then(valid => setDisabled(!valid))
+  }, [formValues])
+
   return (
     // Sign up needs first, last, username, email, zip, password and confirm
     <div className="signup-container">
       <h2>Sign up here!</h2>
-      <form onSubmit={ }>
+      <form onsubmit={ onSubmit }>
         <label>First:
         <input
           name="first"
@@ -118,6 +133,8 @@ export default function Signup() {
           disabled={ disabled }
         >Submit</button>
         <button>Cancel</button>
+
+        {confirmation && <p>Thanks for registering!</p>}
       </form>
     </div>
   )
