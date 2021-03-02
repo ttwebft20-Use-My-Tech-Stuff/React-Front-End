@@ -4157,6 +4157,7 @@ form {
   text-align: center;
   overflow: hidden;
   box-shadow: rgb(0 0 0 / 20%) 0px 4px 44px 6px;
+  border: 2px white solid;
 
   padding: 1vw;
   border-radius: 5px;
