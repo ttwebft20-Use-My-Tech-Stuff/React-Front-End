@@ -24,7 +24,7 @@ function App() {
         <Route path='/profiles/:id'>
           <Profiles />
         </Route>
-        <Route path='/'>
+        <Route path="/">
           <Landing />
         </Route>
       </Switch>
