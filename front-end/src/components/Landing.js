@@ -22,10 +22,10 @@ function Landing() {
                     <a href="elements.html">Squad Goals</a>
                   </li>
                   <li>
-                    <a href="#">Sign Up</a>
+                    <a href="/signup">Sign Up</a>
                   </li>
                   <li>
-                    <a href="#">Log In</a>
+                    <a href="/login">Log In</a>
                   </li>
                 </ul>
               </div>
@@ -207,7 +207,7 @@ function Landing() {
           </header>
           <ul class="actions stacked">
             <li>
-              <a href="#" class="button fit primary">
+              <a href="/signup" class="button fit primary">
                 Sign Up
               </a>
             </li>

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Landing from './components/Landing';
 import Signup from './components/Signup.js'
+import Login from './components/Login';
 import { Route, Switch } from 'react-router-dom'
 
 
@@ -12,6 +13,9 @@ function App() {
       <Switch>
         <Route path="/signup">
           <Signup />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path='/'>
           <Landing />

@@ -4116,3 +4116,21 @@ body.is-mobile.landing .wrapper.style4 {
 body.is-mobile.landing #footer {
   background-color: #1d242a;
 }
+
+/*Login Page*/
+.logincont {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+b {
+  font-size: 25px;
+}
+.logincont input {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.logincont form {
+  margin-top: 50px;
+}
