@@ -77,7 +77,7 @@ export default function Login() {
               type="checkbox"
               name="remember"
               onChange={onChange}
-              values={formValues.remember}
+              value={formValues.remember}
               Remember
               me
             />
