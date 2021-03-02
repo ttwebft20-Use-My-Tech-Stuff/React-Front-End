@@ -25,7 +25,7 @@ function App() {
           <Login />
         </Route>
         <Route path='/profiles/:id'>
-          <Profiles userInfo={user} />
+          <Profiles />
         </Route>
         <Route path='/'>
           <Landing />
