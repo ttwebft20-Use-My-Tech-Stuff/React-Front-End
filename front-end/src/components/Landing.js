@@ -1,49 +1,21 @@
 import React from "react";
+import Nav from "../components/Navbar";
 
 function Landing() {
   return (
-    <div id="page-wrapper">
-      <header id="header" class="alt">
-        <h1>
-          <a href="index.html">Use My Tech Stuff</a>
-        </h1>
-        <nav id="nav">
-          <ul>
-            <li class="special">
-              <div id='nav-menu' >
-                <ul>
-                  <li>
-                    <a href="index.html">Home</a>
-                  </li>
-                  <li>
-                    <a href="generic.html">Features</a>
-                  </li>
-                  <li>
-                    <a href="elements.html">Squad Goals</a>
-                  </li>
-                  <li>
-                    <a href="/signup">Sign Up</a>
-                  </li>
-                  <li>
-                    <a href="/login">Log In</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </nav>
-      </header>
+    <>
+      <Nav />
       <section id="banner">
         <div class="inner">
           <h2>Use My Tech Stuff</h2>
           <p>
             Tired of paying ridiculous fees for camera and other equipment
             <br />
-            rentals? Bypass the middleman and rent from a real person!
+            rentals? Bypass the middleman and rent from a real person.
           </p>
           <ul class="actions special">
             <li>
-              <a href="#" class="button primary">
+              <a href="/items" class="button primary">
                 Explore Items
               </a>
             </li>
@@ -253,7 +225,7 @@ function Landing() {
           <li>Design: The Best Track Team</li>
         </ul>
       </footer>
-    </div>
+    </>
   );
 }
 
