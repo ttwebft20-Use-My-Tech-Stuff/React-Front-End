@@ -68,6 +68,14 @@ export default function ItemForm() {
           />
         </label>
 
+        <button
+          type="submit"
+          name="submit"
+          disabled={disabled}
+        >
+          Submit
+        </button>
+
       </form>
     </div>
   )
