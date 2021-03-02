@@ -81,7 +81,7 @@ export default function Login() {
               Remember
               me
             />
-            Remember Me{" "}
+            Ill change this for you Dom{" "}
           </label>
         </div>
 
