@@ -7,6 +7,7 @@ import Items from "./components/Items";
 import Nav from "./components/Navbar";
 import Profiles from './components/Profiles'
 import { Route, Switch } from "react-router-dom";
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Landing />
         </Route>
       </Switch>
+      {/* <PrivateRoute exact path='/items' component={Items} /> */}
     </div>
   );
 }
