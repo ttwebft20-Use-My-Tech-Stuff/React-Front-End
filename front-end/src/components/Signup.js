@@ -1,8 +1,7 @@
 // import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import * as yup from 'yup'
-import signupSchema from '../validation/signupSchema'
-import '../test.css'
+import React, { useEffect, useState } from "react";
+import * as yup from "yup";
+import signupSchema from "../validation/signupSchema";
 
 const initialForm = {
   first: "",
@@ -11,8 +10,8 @@ const initialForm = {
   email: "",
   zipcode: "",
   password: "",
-  confirm: ""
-}
+  confirm: "",
+};
 
 const initialFormErrors = {
   first: "",
@@ -21,53 +20,54 @@ const initialFormErrors = {
   email: "",
   zipcode: "",
   password: "",
-  confirm: ""
-}
+  confirm: "",
+};
 
 const initialDisabled = true;
 // const initialUsers = []
-const initialConfirmation = [false]
+const initialConfirmation = [false];
 
 export default function Signup() {
   // const [users, setUsers] = useState(initialUsers)
-  const [formValues, setFormValues] = useState(initialForm)
-  const [formErrors, setFormErrors] = useState(initialFormErrors)
-  const [disabled, setDisabled] = useState(initialDisabled)
-  const [confirmation, setConfirmation] = useState(initialConfirmation)
+  const [formValues, setFormValues] = useState(initialForm);
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
+  const [disabled, setDisabled] = useState(initialDisabled);
+  const [confirmation, setConfirmation] = useState(initialConfirmation);
 
   const onChange = (e) => {
-    const { name, value } = e.target
-    yup.reach(signupSchema, name)
+    const { name, value } = e.target;
+    yup
+      .reach(signupSchema, name)
       .validate(value)
       .then(() => {
-        setFormErrors({ ...formErrors, [name]: '' })
+        setFormErrors({ ...formErrors, [name]: "" });
       })
-      .catch(err => {
-        setFormErrors({ ...formErrors, [name]: err.errors[0] })
-      })
+      .catch((err) => {
+        setFormErrors({ ...formErrors, [name]: err.errors[0] });
+      });
 
-    setFormValues({ ...formValues, [name]: value })
-  }
+    setFormValues({ ...formValues, [name]: value });
+  };
 
   const onSubmit = () => {
-    setConfirmation(true)
+    setConfirmation(true);
     // axios.post('/', formValues)
     //   .then(res => { })
-  }
+  };
 
   useEffect(() => {
-    signupSchema.isValid(formValues).then(valid => setDisabled(!valid))
-  }, [formValues])
+    signupSchema.isValid(formValues).then((valid) => setDisabled(!valid));
+  }, [formValues]);
 
   return (
     // Sign up needs first, last, username, email, zip, password and confirm
     <div className="signup-container">
       <h2>Sign up here!</h2>
       <form onsubmit={onSubmit}>
-
         <div className="input">
-          <label>First:
-          <input
+          <label>
+            First:
+            <input
               name="first"
               type="text"
               value={formValues.first}
@@ -77,8 +77,9 @@ export default function Signup() {
         </div>
 
         <div className="input">
-          <label>Last:
-          <input
+          <label>
+            Last:
+            <input
               name="last"
               type="text"
               value={formValues.last}
@@ -88,8 +89,9 @@ export default function Signup() {
         </div>
 
         <div className="input">
-          <label>Username:
-          <input
+          <label>
+            Username:
+            <input
               name="username"
               type="text"
               value={formValues.username}
@@ -99,8 +101,9 @@ export default function Signup() {
         </div>
 
         <div className="input">
-          <label>Email:
-          <input
+          <label>
+            Email:
+            <input
               name="email"
               type="text"
               value={formValues.email}
@@ -110,8 +113,9 @@ export default function Signup() {
         </div>
 
         <div className="input">
-          <label>Zipcode:
-          <input
+          <label>
+            Zipcode:
+            <input
               name="zipcode"
               type="text"
               value={formValues.zipcode}
@@ -121,8 +125,9 @@ export default function Signup() {
         </div>
 
         <div className="input">
-          <label>Password:
-          <input
+          <label>
+            Password:
+            <input
               name="password"
               type="text"
               value={formValues.password}
@@ -132,8 +137,9 @@ export default function Signup() {
         </div>
 
         <div className="input">
-          <label>Confirm Password:
-          <input
+          <label>
+            Confirm Password:
+            <input
               name="confirm"
               type="text"
               value={formValues.confirm}
@@ -143,11 +149,9 @@ export default function Signup() {
         </div>
 
         <div id="buttons">
-          <button
-            name="submit"
-            type="submit"
-            disabled={disabled}
-          >Submit</button>
+          <button name="submit" type="submit" disabled={disabled}>
+            Submit
+          </button>
           <button>Cancel</button>
         </div>
 
@@ -164,5 +168,5 @@ export default function Signup() {
         {confirmation && <p>Thanks for registering!</p>}
       </form>
     </div>
-  )
+  );
 }
