@@ -43,6 +43,7 @@ export default function Signup() {
         setFormErrors({ ...formErrors, [name]: '' })
       })
       .catch(err => {
+        console.log(err.errors)
         setFormErrors({ ...formErrors, [name]: err.errors[0] })
       })
 
@@ -63,7 +64,7 @@ export default function Signup() {
     // Sign up needs first, last, username, email, zip, password and confirm
     <div className="signup-container">
       <h2>Sign up here!</h2>
-      <form onsubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
 
         <div className="input">
           <label>First:
@@ -124,7 +125,7 @@ export default function Signup() {
           <label>Password:
           <input
               name="password"
-              type="text"
+              type="password"
               value={formValues.password}
               onChange={onChange}
             />
@@ -135,7 +136,7 @@ export default function Signup() {
           <label>Confirm Password:
           <input
               name="confirm"
-              type="text"
+              type="password"
               value={formValues.confirm}
               onChange={onChange}
             />
