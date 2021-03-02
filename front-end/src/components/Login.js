@@ -16,8 +16,12 @@ function Login() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
+
   const onChange = (e) => {
-    const { name, value } = e.target;
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    const { name } = e.target;
+
     yup
       .reach(loginSchema, name)
       .validate(value)
@@ -68,11 +72,9 @@ function Login() {
               type="checkbox"
               name="remember"
               onChange={onChange}
-              checked={initialFormValues.remember}
+              checked={formValues.remember}
             />
-            <label>
-              Remember Me{" "}
-            </label>
+            <label>Remember Me </label>
           </div>
         </div>
         <div class="btncontainer">
