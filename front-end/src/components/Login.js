@@ -21,6 +21,7 @@ function Login() {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
 
+
   const changeFormValues = (name, value) => {
     setFormValues({ ...formValues, [name]: value });
   }
@@ -28,6 +29,7 @@ function Login() {
   const onChange = (e) => {
     const { name, value, checked, type } = e.target;
     const correctValue = type === "checkbox" ? checked : value;
+
     yup
       .reach(loginSchema, name)
       .validate(value)
@@ -83,6 +85,7 @@ function Login() {
               id="remember"
               onChange={onChange}
               checked={formValues.remember}
+
               value={formValues.remember}
             />
             <label htmlFor="remember">

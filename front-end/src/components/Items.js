@@ -1,10 +1,14 @@
+
 import React, { useState } from "react";
 import ItemsList from './ItemsList';
 import ItemCard from './ItemCard';
+import Nav from "../components/Navbar";
 import placeholder from "../images/placeholder.webp";
 export default function Items(props) {
   const [itemsList, setItemsList] = useState([]);
   return (
+    <>
+    <Nav />
     <div class="itemscont">
       <div className="content-container">
         <h2>Tech Rentals. Right to your Door.</h2>
@@ -14,5 +18,6 @@ export default function Items(props) {
         </div>
       </div>
     </div>
+    </>
   );
 }
