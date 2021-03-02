@@ -5,6 +5,7 @@ import Signup from "./components/Signup.js";
 import Login from "./components/Login";
 import Items from "./components/Items";
 import Nav from "./components/Navbar";
+import Profiles from './components/Profiles'
 import { Route, Switch } from "react-router-dom";
 
 function App() {
@@ -23,7 +24,10 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/">
+        <Route path='/profiles/:id'>
+          <Profiles userInfo={user} />
+        </Route>
+        <Route path='/'>
           <Landing />
         </Route>
       </Switch>
