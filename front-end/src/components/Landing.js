@@ -10,13 +10,13 @@ function Landing() {
         <nav id="nav">
           <ul>
             <li class="special">
-              <div id='nav-menu' >
+              <div id="nav-menu">
                 <ul>
                   <li>
                     <a href="index.html">Home</a>
                   </li>
                   <li>
-                    <a href="generic.html">Features</a>
+                    <a href="/items">Items</a>
                   </li>
                   <li>
                     <a href="elements.html">Squad Goals</a>
@@ -39,11 +39,11 @@ function Landing() {
           <p>
             Tired of paying ridiculous fees for camera and other equipment
             <br />
-            rentals? Bypass the middleman and rent from a real person!
+            rentals? Bypass the middleman and rent from a real person.
           </p>
           <ul class="actions special">
             <li>
-              <a href="#" class="button primary">
+              <a href="/items" class="button primary">
                 Explore Items
               </a>
             </li>
