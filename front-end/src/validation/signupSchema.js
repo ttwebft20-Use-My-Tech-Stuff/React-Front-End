@@ -29,17 +29,8 @@ export default yup.object().shape({
     .max(16, "Password must be between 8-16 characters"),
   confirm: yup
     .string()
-<<<<<<< HEAD
-    .when('password', {
-      is: val => val.length > 0, 
-      then: yup.string()
-        .required()
-        .oneOf([yup.ref('password'), null], "Passwords must match")
-    })
-=======
     .oneOf([yup.ref('password'), null], "Passwords must match"),
   role: yup
     .string()
     .oneOf(['owner', 'renter'], "User Type is required")
->>>>>>> 4a02730845b37d1d07ff6629c72b9ed222c8fd29
 })

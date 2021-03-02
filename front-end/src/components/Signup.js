@@ -44,21 +44,17 @@ export default function Signup() {
       .reach(signupSchema, name)
       .validate(value)
       .then(() => {
-<<<<<<< HEAD
-        setFormErrors({ ...formErrors, [name]: '' })
-      })
-      .catch(err => {
-        console.log(err.errors)
-        setFormErrors({ ...formErrors, [name]: err.errors[0] })
-=======
         setFormErrors({ ...formErrors, [name]: "" });
->>>>>>> 4a02730845b37d1d07ff6629c72b9ed222c8fd29
       })
       .catch((err) => {
         setFormErrors({ ...formErrors, [name]: err.errors[0] });
       });
-
+    
     setFormValues({ ...formValues, [name]: value });
+
+    if (formValues.password === formValues.confirm) {
+     setFormErrors({...formErrors, 'confirm': ""}) 
+    }
   };
 
   const onSubmit = () => {
@@ -75,12 +71,7 @@ export default function Signup() {
     // Sign up needs first, last, username, email, zip, password and confirm
     <div className="signup-container">
       <h2>Sign up here!</h2>
-<<<<<<< HEAD
-      <form onSubmit={onSubmit}>
-
-=======
       <form onsubmit={onSubmit}>
->>>>>>> 4a02730845b37d1d07ff6629c72b9ed222c8fd29
         <div className="input">
           <label>
             First:

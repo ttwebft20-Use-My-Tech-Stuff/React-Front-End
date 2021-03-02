@@ -26,7 +26,8 @@ export default function ItemForm() {
     setFormValues({...formValues, [name]: value})
   }
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault()
     //Need to make a post request to send the information
     console.log("OK")
   }
@@ -49,7 +50,7 @@ export default function ItemForm() {
         </label>
 
         <label>
-          Price `(per day)`:
+          Price (per day):
           <input
             type="text"
             name="price"
