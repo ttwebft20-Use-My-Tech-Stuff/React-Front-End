@@ -24,7 +24,7 @@ export default function Profiles({userInfo, items}) {
 
       {items.map(item => {
         <div className="content">
-          <ItemsList items={item} />
+          <ItemsList items={itemsList} setItemsList={setItemsList} />
           <ItemCard img={placeholder} name={"Placeholder"} price={"12.99"} />
         </div>
       })}
