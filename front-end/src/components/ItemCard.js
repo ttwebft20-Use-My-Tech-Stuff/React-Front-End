@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Card(props) {
+export default function ItemCard(props) {
   const { img, price, name } = props;
 
   return (
