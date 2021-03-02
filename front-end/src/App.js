@@ -4,7 +4,6 @@ import Landing from "./components/Landing";
 import Signup from "./components/Signup.js";
 import Login from "./components/Login";
 import Items from "./components/Items";
-import Nav from "./components/Navbar";
 import Profiles from './components/Profiles'
 import { Route, Switch } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute';
@@ -18,9 +17,6 @@ function App() {
         </Route>
         <Route path="/items">
           <Items />
-        </Route>
-        <Route path="/nav">
-          <Nav />
         </Route>
         <Route path="/login">
           <Login />

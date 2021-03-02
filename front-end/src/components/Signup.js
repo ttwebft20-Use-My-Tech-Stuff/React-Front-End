@@ -1,5 +1,7 @@
 // import axios from 'axios'
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import * as yup from "yup";
 import signupSchema from "../validation/signupSchema";
 
@@ -28,15 +30,15 @@ const initialFormErrors = {
 
 
 const initialDisabled = true;
-// const initialUsers = []
 const initialConfirmation = [false];
 
 export default function Signup() {
-  // const [users, setUsers] = useState(initialUsers)
+  const [users, setUsers] = useState([])
   const [formValues, setFormValues] = useState(initialForm);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
   const [confirmation, setConfirmation] = useState(initialConfirmation);
+  const { push } = useHistory();
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -53,11 +55,27 @@ export default function Signup() {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const onSubmit = () => {
-    setConfirmation(true);
-    // axios.post('/', formValues)
-    //   .then(res => { })
+  const onSubmit = (e) => {
+    e.preventDefault();
+    submit();
   };
+
+  const submit = () => {
+    const newUser = {
+      username: formValues.username.trim(),
+      password: formValues.password.trim()
+    }
+    axios
+      .post('http://ttwebft20-use-my-tech-stuff.herokuapp.com/api/auth/register', newUser)
+      .then((res) => {
+        console.log(res);
+        setUsers([...users, newUser]);
+        push('/login');
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
   useEffect(() => {
     signupSchema.isValid(formValues).then((valid) => setDisabled(!valid));
