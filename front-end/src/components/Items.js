@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ItemsList from './ItemsList';
 import ItemCard from './ItemCard';
-import Nav from "../components/Navbar";
+import Navbar from "../components/Navbar";
 import placeholder from "../images/placeholder.webp";
 import { axiosWithAuth } from '../helpers/axiosWithAuth';
 export default function Items(props) {
   const [itemsList, setItemsList] = useState([]);
   return (
     <>
-      <Nav />
+      <Navbar />
       <div class="itemscont">
         <div className="content-container">
           <h2>Tech Rentals. Right to your Door.</h2>
