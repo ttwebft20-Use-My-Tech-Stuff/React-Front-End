@@ -5,7 +5,7 @@ import loginSchema from "../validation/loginSchema";
 const initialFormValues = {
   uname: "",
   psw: "",
-  remember: false,
+  remember: true,
 };
 const initialFormErrors = {
   uname: "",
