@@ -3666,11 +3666,12 @@ body.is-menu-visible #menu {
   -ms-justify-content: center;
   justify-content: center;
   cursor: default;
-  height: 100vh;
+  height: 90vh;
   min-height: 35em;
   overflow: hidden;
   position: relative;
   text-align: center;
+  margin-top: 0;
 }
 
 #banner h2 {
@@ -3688,6 +3689,7 @@ body.is-menu-visible #menu {
   padding: 0.35em 1em;
   position: relative;
   z-index: 1;
+  margin-top: 0;
 }
 
 #banner h2:before,
@@ -4178,7 +4180,7 @@ form {
 .content-container {
   width: 90%;
   margin: auto;
-  margin-top: 20rem;
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
 }
@@ -4224,4 +4226,23 @@ form {
 }
 .card h4 {
   font-weight: normal;
+}
+
+/*NavBar*/
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.navigation button {
+  margin: 50px;
+}
+.navigation button:hover {
+  transition: 1s;
+  background-color: #32ced1;
+}
+.inner {
+  margin-top: 5rem;
 }
