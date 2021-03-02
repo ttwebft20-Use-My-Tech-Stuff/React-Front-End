@@ -1,21 +1,21 @@
 import React from "react";
-
-export default function Nav(props) {
+import { Link } from "react-router-dom";
+export default function Navbar(props) {
   return (
     <div className="navigation">
       <nav>
-        <button className="btn" href="/">
-          Home
-        </button>
-        <button className="btn" href="/items">
-          Items
-        </button>
-        <button className="btn" href="/signup">
-          Signup
-        </button>
-        <button className="btn" href="/login">
-          Login
-        </button>
+        <Link to="/">
+          <button className="btn">Home</button>
+        </Link>
+        <Link to="/items">
+          <button className="btn">Items</button>
+        </Link>
+        <Link to="/signup">
+          <button className="btn">Signup</button>
+        </Link>
+        <Link to="/login">
+          <button className="btn">Login</button>
+        </Link>
       </nav>
     </div>
   );

@@ -1,5 +1,7 @@
 // import axios from 'axios'
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import * as yup from "yup";
 import signupSchema from "../validation/signupSchema";
 
@@ -28,15 +30,15 @@ const initialFormErrors = {
 
 
 const initialDisabled = true;
-// const initialUsers = []
 const initialConfirmation = [false];
 
 export default function Signup() {
-  // const [users, setUsers] = useState(initialUsers)
+  const [users, setUsers] = useState([])
   const [formValues, setFormValues] = useState(initialForm);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
   const [confirmation, setConfirmation] = useState(initialConfirmation);
+  const { push } = useHistory();
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -44,24 +46,36 @@ export default function Signup() {
       .reach(signupSchema, name)
       .validate(value)
       .then(() => {
-        setFormErrors({ ...formErrors, [name]: "" });
+        setFormErrors({ ...formErrors, [name]: '' })
       })
       .catch((err) => {
         setFormErrors({ ...formErrors, [name]: err.errors[0] });
       });
-    
+
     setFormValues({ ...formValues, [name]: value });
+  };
 
-    if (formValues.password === formValues.confirm) {
-     setFormErrors({...formErrors, 'confirm': ""}) 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    submit();
+  };
+
+  const submit = () => {
+    const newUser = {
+      username: formValues.username.trim(),
+      password: formValues.password.trim()
     }
-  };
-
-  const onSubmit = () => {
-    setConfirmation(true);
-    // axios.post('/', formValues)
-    //   .then(res => { })
-  };
+    axios
+      .post('http://ttwebft20-use-my-tech-stuff.herokuapp.com/api/auth/register', newUser)
+      .then((res) => {
+        console.log(res);
+        setUsers([...users, newUser]);
+        push('/login');
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
   useEffect(() => {
     signupSchema.isValid(formValues).then((valid) => setDisabled(!valid));
@@ -71,7 +85,7 @@ export default function Signup() {
     // Sign up needs first, last, username, email, zip, password and confirm
     <div className="signup-container">
       <h2>Sign up here!</h2>
-      <form onsubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
         <div className="input">
           <label>
             First:
