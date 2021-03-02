@@ -11,7 +11,9 @@ const initialForm = {
   zipcode: "",
   password: "",
   confirm: "",
+  role: ""
 };
+
 
 const initialFormErrors = {
   first: "",
@@ -21,7 +23,9 @@ const initialFormErrors = {
   zipcode: "",
   password: "",
   confirm: "",
+  role: ""
 };
+
 
 const initialDisabled = true;
 // const initialUsers = []
@@ -145,6 +149,20 @@ export default function Signup() {
               value={formValues.confirm}
               onChange={onChange}
             />
+          </label>
+        </div>
+
+        <div>
+          <label>User Type:
+            <select
+              onChange={onChange}
+              value={formValues.role}
+              name='role'
+            >
+              <option value=''>- - select one - -</option>
+              <option value='owner'>Owner</option>
+              <option value='renter'>Renter</option>
+            </select>
           </label>
         </div>
 
