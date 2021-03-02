@@ -1,117 +1,91 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-
-function Copyright() {
+import { useEffect, useState } from "react";
+import * as yup from "yup";
+import loginSchema from "../validation/loginSchema";
+const initialFormValues = {
+  uname: "",
+  psw: "",
+  remember: false,
+};
+const initialFormErrors = {
+  uname: "",
+  psw: "",
+};
+const initialDisabled = true;
+function Login() {
+  const [formValues, setFormValues] = useState(initialFormValues);
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
+  const [disabled, setDisabled] = useState(initialDisabled);
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    yup
+      .reach(loginSchema, name)
+      .validate(value)
+      .then(() => {
+        setFormErrors({ ...formErrors, [name]: "" });
+      })
+      .catch((err) => {
+        setFormErrors({ ...formErrors, [name]: err.errors[0] });
+      });
+    setFormValues({ ...formValues, [name]: value });
+  };
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    onSubmit();
+  };
+  useEffect(() => {
+    loginSchema.isValid(formValues).then((valid) => setDisabled(!valid));
+  }, [formValues]);
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Use My Tech Stuff
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
-
-export default function SignIn() {
-  const classes = useStyles();
-
-  return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
+    <div class="logincont">
+      <form onsubmit={onSubmit}>
+        <div class="textcontainer">
+          <label for="uname">
+            <b>Username</b>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="uname"
+            onChange={onChange}
+            value={formValues.uname}
           />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
+          <label for="psw">
+            <b>Password</b>
+          </label>
+          <input
             type="password"
-            id="password"
-            autoComplete="current-password"
+            placeholder="Enter Password"
+            name="psw"
+            onChange={onChange}
+            value={formValues.psw}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign In
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-    </Container>
+          <button disabled={disabled} type="submit">
+            Login
+          </button>
+          <div>
+            <input
+              type="checkbox"
+              name="remember"
+              onChange={onChange}
+              checked={initialFormValues.remember}
+            />
+            <label>
+              Remember Me{" "}
+            </label>
+          </div>
+        </div>
+        <div class="btncontainer">
+          <span class="psw">
+            Forgot <a href="#">Password?</a>
+          </span>
+        </div>
+        <div className="errors">
+          <div>{formErrors.uname}</div>
+          <div>{formErrors.psw}</div>
+        </div>
+      </form>
+    </div>
   );
 }
+export default Login;
