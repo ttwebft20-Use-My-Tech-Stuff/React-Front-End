@@ -4209,6 +4209,9 @@ form {
   box-shadow: rgb(0 0 0 / 20%) 0px 4px 44px 6px;
   /* rgb(0 0 0 / 6%) 0px 2px 24px 6px; */
 }
+.card button {
+  margin-top: 20px;
+}
 .card button:hover {
   transition: 1s;
   background-color: #32ced1;
@@ -4244,4 +4247,17 @@ form {
 }
 .inner {
   margin-top: 5rem;
+}
+.MuiPaper-root.MuiAccordion-root.MuiAccordion-rounded.MuiPaper-elevation1.MuiPaper-rounded {
+  background-color: #515e6b;
+  color: white;
+  font-family: Helvetica;
+  text-align: center;
+}
+.svg.MuiSvgIcon-root {
+  color: white;
+}
+.makeStyles-heading-2 {
+  text-align: center;
+  font-weight: bold;
 }
