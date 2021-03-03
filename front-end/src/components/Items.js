@@ -10,7 +10,7 @@ export default function Items(props) {
   return (
     <>
       <Navbar />
-      <div class="itemscont">
+      <div className="itemscont">
         <div className="content-container">
           <h2>Tech Rentals. Right to your Door.</h2>
           <div className="content">

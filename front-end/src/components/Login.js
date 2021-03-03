@@ -1,22 +1,24 @@
+import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import * as yup from "yup";
 import loginSchema from "../validation/loginSchema";
 
 const initialFormValues = {
-  uname: "",
-  psw: "",
+  username: "",
+  password: "",
   remember: false,
 };
 
 const initialFormErrors = {
-  uname: "",
-  psw: "",
+  username: "",
+  password: "",
 };
 
 const initialDisabled = true;
 
 function Login() {
+  const [users, setUsers] = useState([]);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -29,7 +31,6 @@ function Login() {
   const onChange = (e) => {
     const { name, value, checked, type } = e.target;
     const correctValue = type === "checkbox" ? checked : value;
-
     yup
       .reach(loginSchema, name)
       .validate(value)
@@ -44,7 +45,20 @@ function Login() {
 
   const onSubmit = (evt) => {
     evt.preventDefault();
-    onSubmit();
+    const newUser = {
+      username: formValues.username.trim(),
+      password: formValues.password.trim(),
+    };
+    setUsers([...users, newUser]);
+    setFormValues(initialFormValues);
+    axios
+      .post('http://ttwebft20-use-my-tech-stuff.herokuapp.com/api/auth/login', formValues)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   };
 
   useEffect(() => {
@@ -55,25 +69,25 @@ function Login() {
     <div className="logincont">
       <form onSubmit={onSubmit}>
         <div className="textcontainer">
-          <label htmlFor="uname">
+          <label htmlFor="username">
             <b>Username</b>
           </label>
           <input
             type="text"
             placeholder="Enter Username"
-            name="uname"
+            name="username"
             onChange={onChange}
-            value={formValues.uname}
+            value={formValues.username}
           />
-          <label htmlFor="psw">
+          <label htmlFor="password">
             <b>Password</b>
           </label>
           <input
             type="password"
             placeholder="Enter Password"
-            name="psw"
+            name="password"
             onChange={onChange}
-            value={formValues.psw}
+            value={formValues.password}
           />
           <button disabled={disabled} type="submit">
             Login
@@ -94,13 +108,13 @@ function Login() {
           </div>
         </div>
         <div className="btncontainer">
-          <span className="psw">
+          <span className="password">
             Forgot <a href="#">Password?</a>
           </span>
         </div>
         <div className="errors">
-          <div>{formErrors.uname}</div>
-          <div>{formErrors.psw}</div>
+          <div>{formErrors.username}</div>
+          <div>{formErrors.password}</div>
         </div>
       </form>
     </div>

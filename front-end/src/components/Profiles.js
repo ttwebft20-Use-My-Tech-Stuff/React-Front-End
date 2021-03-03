@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useRouteMatch, useParams} from 'react-router-dom'
-import Nav from './Navbar'
+import { useRouteMatch, useParams } from 'react-router-dom'
+import Navbar from './Navbar'
 import ItemsList from './ItemsList';
 import ItemCard from './ItemCard';
 import placeholder from "../images/placeholder.webp";
@@ -9,17 +9,17 @@ import ItemForm from './ItemForm'
 const InitialForm = false
 // props will contain all user info and items
 export default function Profiles(/*{ userInfo, items }*/) {
-  
+
   // const { first, last, username, email, zipcode } = userInfo
   const [displayForm, setDisplayForm] = useState(InitialForm)
-  
+
   const onClick = () => {
     setDisplayForm(!displayForm)
   }
 
   return (
     <div>
-      <Nav />
+      <Navbar />
       <h1>Username</h1>
       <div className="user-info">
         {/* <p>Name: {first} {last}</p>
