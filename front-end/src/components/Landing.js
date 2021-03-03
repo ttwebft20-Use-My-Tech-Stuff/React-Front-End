@@ -6,29 +6,29 @@ function Landing() {
     <>
       <Nav />
       <section id="banner">
-        <div class="inner">
+        <div className="inner">
           <h2>Use My Tech Stuff</h2>
           <p>
             Tired of paying ridiculous fees for camera and other equipment
             <br />
             rentals? Bypass the middleman and rent from a real person.
           </p>
-          <ul class="actions special">
+          <ul className="actions special">
             <li>
-              <a href="/items" class="button primary">
+              <a href="/items" className="button primary">
                 Explore Items
               </a>
             </li>
           </ul>
         </div>
-        <a href="#one" class="more scrolly">
+        <a href="#one" className="more scrolly">
           Learn More
         </a>
       </section>
 
-      <section id="one" class="wrapper style1 special">
-        <div class="inner">
-          <header class="major">
+      <section id="one" className="wrapper style1 special">
+        <div className="inner">
+          <header className="major">
             <h2>Try the latest inventions today</h2>
             <p>
               Discover great products. Rent directly from owners.
@@ -36,31 +36,31 @@ function Landing() {
               Or add your own product, make money and get some feedback.
             </p>
           </header>
-          <ul class="icons major">
+          <ul className="icons major">
             <li>
-              <span class="icon fa-gem major style1">
-                <span class="label">Lorem</span>
+              <span className="icon fa-gem major style1">
+                <span className="label">Lorem</span>
               </span>
             </li>
             <li>
-              <span class="icon fa-heart major style2">
-                <span class="label">Ipsum</span>
+              <span className="icon fa-heart major style2">
+                <span className="label">Ipsum</span>
               </span>
             </li>
             <li>
-              <span class="icon solid fa-code major style3">
-                <span class="label">Dolor</span>
+              <span className="icon solid fa-code major style3">
+                <span className="label">Dolor</span>
               </span>
             </li>
           </ul>
         </div>
       </section>
-      <section id="two" class="wrapper alt style2">
-        <section class="spotlight">
-          <div class="image">
+      <section id="two" className="wrapper alt style2">
+        <section className="spotlight">
+          <div className="image">
             <img src="images/pic01.jpg" alt="" />
           </div>
-          <div class="content">
+          <div className="content">
             <h2>Stay In The Know</h2>
             <p>
               Learn about the latest trends in the world of science and
@@ -69,11 +69,11 @@ function Landing() {
             </p>
           </div>
         </section>
-        <section class="spotlight">
-          <div class="image">
+        <section className="spotlight">
+          <div className="image">
             <img src="images/pic02.jpg" alt="" />
           </div>
-          <div class="content">
+          <div className="content">
             <h2>Go Green</h2>
             <p>
               Ownership is overrated. Save money and help <br /> the
@@ -83,11 +83,11 @@ function Landing() {
             </p>
           </div>
         </section>
-        <section class="spotlight">
-          <div class="image">
+        <section className="spotlight">
+          <div className="image">
             <img src="images/pic03.jpg" alt="" />
           </div>
-          <div class="content">
+          <div className="content">
             <h2>Improve Your Life</h2>
             <p>
               Discover new opportunities for yourself. With latest inventions,
@@ -97,9 +97,9 @@ function Landing() {
           </div>
         </section>
       </section>
-      <section id="three" class="wrapper style3 special">
-        <div class="inner">
-          <header class="major">
+      <section id="three" className="wrapper style3 special">
+        <div className="inner">
+          <header className="major">
             <h2>Explore, make your choice and book it</h2>
             <p>
               We are striving to bring the latest and hottest Tech innovations.
@@ -107,8 +107,8 @@ function Landing() {
               Make your pick, and book it to try for a few days.
             </p>
           </header>
-          <ul class="features">
-            <li class="icon fa-paper-plane">
+          <ul className="features">
+            <li className="icon fa-paper-plane">
               <h3>We will deliver your item</h3>
               <p>
                 We deliver every day Monday to Sunday including bank holidays.
@@ -116,7 +116,7 @@ function Landing() {
                 deliveries.
               </p>
             </li>
-            <li class="icon solid fa-laptop">
+            <li className="icon solid fa-laptop">
               <h3>Ready to go, out of the box</h3>
               <p>
                 We know that feeling of unpacking something new. That's why
@@ -126,7 +126,7 @@ function Landing() {
                 something new has never been easier.
               </p>
             </li>
-            <li class="icon solid fa-code">
+            <li className="icon solid fa-code">
               <h3>We have it covered</h3>
               <p>
                 We know that accidents sometimes happen. All products rented
@@ -137,7 +137,7 @@ function Landing() {
                 and souls into bringing them to life.
               </p>
             </li>
-            <li class="icon solid fa-headphones-alt">
+            <li className="icon solid fa-headphones-alt">
               <h3>When finished, our courier picks it up</h3>
               <p>
                 When time comes, just put it back in the box and give it to our
@@ -145,7 +145,7 @@ function Landing() {
                 include offers to purchase a brand new one and make it your own.
               </p>
             </li>
-            <li class="icon fa-heart">
+            <li className="icon fa-heart">
               <h3>Try before you buy</h3>
               <p>
                 It's always better to experience a product. Show stores are
@@ -154,7 +154,7 @@ function Landing() {
                 purchased it.
               </p>
             </li>
-            <li class="icon fa-flag">
+            <li className="icon fa-flag">
               <h3>Have fun</h3>
               <p>
                 Trying new things with Us is beautifully easy, simple and
@@ -167,8 +167,8 @@ function Landing() {
         </div>
       </section>
 
-      <section id="cta" class="wrapper style4">
-        <div class="inner">
+      <section id="cta" className="wrapper style4">
+        <div className="inner">
           <header>
             <h2>Anyone can be an inventor.</h2>
             <p>
@@ -177,14 +177,14 @@ function Landing() {
               beings and can solve any problems when working together.
             </p>
           </header>
-          <ul class="actions stacked">
+          <ul className="actions stacked">
             <li>
-              <a href="/signup" class="button fit primary">
+              <a href="/signup" className="button fit primary">
                 Sign Up
               </a>
             </li>
             <li>
-              <a href="#" class="button fit">
+              <a href="#" className="button fit">
                 Learn More
               </a>
             </li>
@@ -193,34 +193,34 @@ function Landing() {
       </section>
 
       <footer id="footer">
-        <ul class="icons">
+        <ul className="icons">
           <li>
-            <a href="#" class="icon brands fa-twitter">
-              <span class="label">Twitter</span>
+            <a href="#" className="icon brands fa-twitter">
+              <span className="label">Twitter</span>
             </a>
           </li>
           <li>
-            <a href="#" class="icon brands fa-facebook-f">
-              <span class="label">Facebook</span>
+            <a href="#" className="icon brands fa-facebook-f">
+              <span className="label">Facebook</span>
             </a>
           </li>
           <li>
-            <a href="#" class="icon brands fa-instagram">
-              <span class="label">Instagram</span>
+            <a href="#" className="icon brands fa-instagram">
+              <span className="label">Instagram</span>
             </a>
           </li>
           <li>
-            <a href="#" class="icon brands fa-dribbble">
-              <span class="label">Dribbble</span>
+            <a href="#" className="icon brands fa-dribbble">
+              <span className="label">Dribbble</span>
             </a>
           </li>
           <li>
-            <a href="#" class="icon solid fa-envelope">
-              <span class="label">Email</span>
+            <a href="#" className="icon solid fa-envelope">
+              <span className="label">Email</span>
             </a>
           </li>
         </ul>
-        <ul class="copyright">
+        <ul className="copyright">
           <li>&copy; Use My Tech Stuff</li>
           <li>Design: The Best Track Team</li>
         </ul>

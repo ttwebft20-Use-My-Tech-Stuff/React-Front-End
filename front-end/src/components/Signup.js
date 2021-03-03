@@ -6,8 +6,8 @@ import * as yup from "yup";
 import signupSchema from "../validation/signupSchema";
 
 const initialForm = {
-  first: "",
-  last: "",
+  first_name: "",
+  last_name: "",
   username: "",
   email: "",
   zipcode: "",
@@ -18,8 +18,8 @@ const initialForm = {
 
 
 const initialFormErrors = {
-  first: "",
-  last: "",
+  first_name: "",
+  last_name: "",
   username: "",
   email: "",
   zipcode: "",
@@ -57,20 +57,24 @@ export default function Signup() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    submit();
+    const newUser = {
+      first_name: formValues.first_name.trim(),
+      last_name: formValues.last_name.trim(),
+      username: formValues.username.trim(),
+      email: formValues.email.trim(),
+      zipcode: formValues.zipcode.trim(),
+      password: formValues.password.trim(),
+      role: formValues.role.trim()
+    }
+    postUser(newUser);
   };
 
-  const submit = () => {
-    const newUser = {
-      username: formValues.username.trim(),
-      password: formValues.password.trim()
-    }
+  const postUser = (newUser) => {
     axios
       .post('http://ttwebft20-use-my-tech-stuff.herokuapp.com/api/auth/register', newUser)
       .then((res) => {
+        console.log(newUser);
         console.log(res);
-        setUsers([...users, newUser]);
-        push('/login');
       })
       .catch((err) => {
         console.log(err);
@@ -82,17 +86,17 @@ export default function Signup() {
   }, [formValues]);
 
   return (
-    // Sign up needs first, last, username, email, zip, password and confirm
+    // Sign up needs first_name, last_name, username, email, zip, password and confirm
     <div className="signup-container">
       <h2>Sign up here!</h2>
       <form onSubmit={onSubmit}>
         <div className="input">
           <label>
-            First:
+            First Name:
             <input
-              name="first"
+              name="first_name"
               type="text"
-              value={formValues.first}
+              value={formValues.first_name}
               onChange={onChange}
             />
           </label>
@@ -100,11 +104,11 @@ export default function Signup() {
 
         <div className="input">
           <label>
-            Last:
+            Last Name:
             <input
-              name="last"
+              name="last_name"
               type="text"
-              value={formValues.last}
+              value={formValues.last_name}
               onChange={onChange}
             />
           </label>
@@ -192,8 +196,8 @@ export default function Signup() {
         </div>
 
         <div className="errors">
-          <div>{formErrors.first}</div>
-          <div>{formErrors.last}</div>
+          <div>{formErrors.first_name}</div>
+          <div>{formErrors.last_name}</div>
           <div>{formErrors.username}</div>
           <div>{formErrors.email}</div>
           <div>{formErrors.zipcode}</div>
