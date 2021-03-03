@@ -67,6 +67,10 @@ function Login() {
     push('/');
   }
 
+  const onRegister = () => {
+    push('/signup');
+  }
+
   useEffect(() => {
     loginSchema.isValid(formValues).then((valid) => setDisabled(!valid));
   }, [formValues]);
@@ -99,6 +103,9 @@ function Login() {
             Login
           </button>
           <button onClick={onCancel}>Cancel</button>
+          <div>
+            <button onClick={onRegister}>Register</button>
+          </div>
           <div>
             <input
               type="checkbox"
