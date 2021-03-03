@@ -15,21 +15,15 @@ function App() {
         <Route path="/signup">
           <Signup />
         </Route>
-        <Route path="/items">
-          <Items />
-        </Route>
+        <PrivateRoute exact path='/items' component={Items} />z
         <Route path="/login">
           <Login />
         </Route>
-        <Route path='/profiles'>
-          <Profiles />
-        </Route>
+        <PrivateRoute exact path='/profiles' component={Profiles} />
         <Route path="/">
           <Landing />
         </Route>
       </Switch>
-      <PrivateRoute exact path='/items' component={Items} />
-      <PrivateRoute exact path='./profiles' component={Profiles} />
     </div>
   );
 }
