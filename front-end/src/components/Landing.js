@@ -1,10 +1,10 @@
 import React from "react";
-import Nav from "../components/Navbar";
+import Navbar from "./Navbar";
 
 function Landing() {
   return (
     <>
-      <Nav />
+      <Navbar />
       <section id="banner">
         <div className="inner">
           <h2>Use My Tech Stuff</h2>

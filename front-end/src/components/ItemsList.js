@@ -6,7 +6,7 @@ function ItemsList({ items }) {
         <div>
             {
                 items.map(item => {
-                    return <ItemCard key={item.id} item={item} />
+                    return <ItemCard key={item.item_name} item={item} />
                 })
             }
         </div>

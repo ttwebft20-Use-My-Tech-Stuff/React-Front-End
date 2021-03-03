@@ -21,14 +21,15 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path='/profiles/:id'>
+        <Route path='/profiles'>
           <Profiles />
         </Route>
         <Route path="/">
           <Landing />
         </Route>
       </Switch>
-      {/* <PrivateRoute exact path='/items' component={Items} /> */}
+      <PrivateRoute exact path='/items' component={Items} />
+      <PrivateRoute exact path='./profiles' component={Profiles} />
     </div>
   );
 }

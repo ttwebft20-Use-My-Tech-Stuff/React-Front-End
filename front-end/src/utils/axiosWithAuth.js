@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const axiosWithAuth = () => {
+export const axiosWithAuth = () => {
     const token = localStorage.getItem('token')
     return axios.create({
         baseURL: 'http://ttwebft20-use-my-tech-stuff.herokuapp.com/api',
@@ -9,5 +9,3 @@ const axiosWithAuth = () => {
         }
     })
 }
-
-export default axiosWithAuth;
