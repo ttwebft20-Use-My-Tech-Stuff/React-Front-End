@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom';
 import * as yup from "yup";
 import loginSchema from "../validation/loginSchema";
 
@@ -22,7 +23,7 @@ function Login() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
-
+  const { push } = useHistory();
 
   const changeFormValues = (name, value) => {
     setFormValues({ ...formValues, [name]: value });
@@ -54,7 +55,8 @@ function Login() {
     axios
       .post('http://ttwebft20-use-my-tech-stuff.herokuapp.com/api/auth/login', formValues)
       .then((res) => {
-        console.log(res);
+        localStorage.setItem('token', res.data.token);
+        push('/items');
       })
       .catch((err) => {
         console.log(err);

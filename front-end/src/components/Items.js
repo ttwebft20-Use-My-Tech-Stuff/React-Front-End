@@ -3,7 +3,6 @@ import ItemsList from './ItemsList';
 import ItemCard from './ItemCard';
 import Navbar from "../components/Navbar";
 import placeholder from "../images/placeholder.webp";
-import { axiosWithAuth } from '../helpers/axiosWithAuth';
 
 export default function Items(props) {
   const [itemsList, setItemsList] = useState([]);

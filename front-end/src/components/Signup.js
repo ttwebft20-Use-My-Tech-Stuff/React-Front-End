@@ -73,8 +73,9 @@ export default function Signup() {
     axios
       .post('http://ttwebft20-use-my-tech-stuff.herokuapp.com/api/auth/register', newUser)
       .then((res) => {
-        console.log(newUser);
         console.log(res);
+        setUsers([...users, newUser]);
+        push('/login');
       })
       .catch((err) => {
         console.log(err);
