@@ -63,6 +63,10 @@ function Login() {
       })
   };
 
+  const onCancel = () => {
+    push('/');
+  }
+
   useEffect(() => {
     loginSchema.isValid(formValues).then((valid) => setDisabled(!valid));
   }, [formValues]);
@@ -94,6 +98,7 @@ function Login() {
           <button disabled={disabled} type="submit">
             Login
           </button>
+          <button onClick={onCancel}>Cancel</button>
           <div>
             <input
               type="checkbox"

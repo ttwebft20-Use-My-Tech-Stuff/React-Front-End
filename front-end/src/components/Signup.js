@@ -62,7 +62,7 @@ export default function Signup() {
       last_name: formValues.last_name.trim(),
       username: formValues.username.trim(),
       email: formValues.email.trim(),
-      zipcode: formValues.zipcode.trim(),
+      zipcode: formValues.zipcode,
       password: formValues.password.trim(),
       role: formValues.role.trim()
     }
@@ -80,6 +80,10 @@ export default function Signup() {
       .catch((err) => {
         console.log(err);
       })
+  }
+
+  const onCancel = () => {
+    push('/');
   }
 
   useEffect(() => {
@@ -193,7 +197,7 @@ export default function Signup() {
           <button name="submit" type="submit" disabled={disabled}>
             Submit
           </button>
-          <button>Cancel</button>
+          <button onClick={onCancel}>Cancel</button>
         </div>
 
         <div className="errors">

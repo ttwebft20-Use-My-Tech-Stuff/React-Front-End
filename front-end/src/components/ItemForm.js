@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react'
 import itemSchema from '../validation/itemSchema'
 
 const initialFormValues = {
-  name: "",
+  item_name: "",
+  category: "",
   price: "",
-  image: ""
+  owner_username: ""
 }
 
 const initialFormErrors = {
-  name: "",
+  item_name: "",
+  category: "",
   price: "",
-  image: ""
+  owner_username: ""
 }
 
 const initialDisabled = true
@@ -23,7 +25,7 @@ export default function ItemForm() {
 
   const onChange = (e) => {
     const { name, value } = e.target
-    setFormValues({...formValues, [name]: value})
+    setFormValues({ ...formValues, [name]: value })
   }
 
   const onSubmit = (e) => {
@@ -40,13 +42,23 @@ export default function ItemForm() {
     <div className="item-form">
       <form onSubmit={onSubmit}>
         <label>
-          Name:
+          Item Name:
           <input
             type="text"
-            name="name"
-            value={formValues.name}
+            name="item_name"
+            value={formValues.item_name}
             onChange={onChange}
           />
+        </label>
+
+        <label>
+          Category:
+          <select name="category">
+            <option value="">--Select--</option>
+            <option value="camera">Camera</option>
+            <option value="television">Television</option>
+            <option value="party-equipment">Party Equipment</option>
+          </select>
         </label>
 
         <label>
@@ -55,16 +67,6 @@ export default function ItemForm() {
             type="text"
             name="price"
             value={formValues.price}
-            onChange={onChange}
-          />
-        </label>
-
-        <label>
-          Image url:
-          <input
-            type="text"
-            name="image"
-            value={formValues.image}
             onChange={onChange}
           />
         </label>

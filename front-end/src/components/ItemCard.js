@@ -17,15 +17,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ItemCard(props) {
-  const { img, price, name } = props;
+  const { category, description, item_name, owner_username, price } = props.item;
   const classes = useStyles();
 
   return (
     <div className="card">
-      <img src={img} alt="" />
-      <h3>{name}</h3>
+      <h3>{item_name}</h3>
       <div className="cardcont">
         <h4>${price} /per day</h4>
+        <h4>Category: {category}</h4>
         <div className={classes.root}>
           <Accordion>
             <AccordionSummary
@@ -37,14 +37,12 @@ export default function ItemCard(props) {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                {description}
               </Typography>
             </AccordionDetails>
           </Accordion>
         </div>
-        <button>Rent Now</button>
+        <button>Contact {owner_username} to Rent Now</button>
       </div>
     </div>
   );
