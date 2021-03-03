@@ -1,3 +1,5 @@
+import { REGISTER } from './signupTypes';
+
 const initialState = {
 }
 
