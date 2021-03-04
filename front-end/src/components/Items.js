@@ -4,23 +4,6 @@ import ItemsList from './ItemsList';
 import Navbar from "../components/Navbar";
 
 export default function Items(props) {
-  const [itemsList, setItemsList] = useState([]);
-
-  const getItemsList = () => {
-    axiosWithAuth()
-      .get("/tech_items")
-      .then((res) => {
-        console.log(res);
-        setItemsList(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    getItemsList();
-  }, []);
 
   return (
     <>
@@ -30,7 +13,7 @@ export default function Items(props) {
           <h2>Tech Rentals. Right to your Door.</h2>
 
           <div className="content">
-            <ItemsList items={itemsList} setItemsList={setItemsList} />
+            <ItemsList items={props.items} setItemsList={props.setItemsList} />
           </div>
         </div>
       </div>
