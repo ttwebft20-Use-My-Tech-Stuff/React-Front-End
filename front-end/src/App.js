@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { axiosWithAuth } from './utils/axiosWithAuth';
 import "./App.css";
 import Landing from "./components/Landing";
 import Signup from "./components/Signup.js";
@@ -9,17 +10,34 @@ import { Route, Switch } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
+  const [itemsList, setItemsList] = useState([]);
+
+  const getItemsList = () => {
+    axiosWithAuth()
+      .get("/tech_items")
+      .then((res) => {
+        console.log(res);
+        setItemsList(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getItemsList();
+  }, []);
   return (
     <div className="App">
       <Switch>
         <Route path="/signup">
           <Signup />
         </Route>
-        <PrivateRoute exact path='/items' component={Items} />z
+        <PrivateRoute exact path='/items' component={Items} items={itemsList} setItemsList={setItemsList} />
         <Route path="/login">
           <Login />
         </Route>
-        <PrivateRoute exact path='/profiles' component={Profiles} />
+        <PrivateRoute exact path='/profiles' component={Profiles} items={itemsList} setItemsList={setItemsList} />
         <Route path="/">
           <Landing />
         </Route>

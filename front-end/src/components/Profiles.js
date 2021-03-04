@@ -37,7 +37,7 @@ const items = [
 ]
 
 // props will contain all user info and items
-export default function Profiles() {
+export default function Profiles(props) {
 
   const { first, last, username, email, zipcode } = userInfo
   const [displayForm, setDisplayForm] = useState(InitialForm)
@@ -60,7 +60,7 @@ export default function Profiles() {
 
         <button onClick={onClick}>Add Item</button>
 
-        {displayForm && <ItemForm />}
+        {displayForm && <ItemForm items={props.items} setItemsList={props.setItemsList} />}
 
 
         <div className="content">

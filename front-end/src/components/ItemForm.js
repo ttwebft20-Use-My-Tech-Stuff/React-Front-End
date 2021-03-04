@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import itemSchema from '../validation/itemSchema'
-// import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import * as yup from 'yup'
 
 
@@ -20,7 +20,7 @@ const initialFormErrors = {
 
 const initialDisabled = true
 
-export default function ItemForm() {
+export default function ItemForm(props) {
 
   const [formValues, setFormValues] = useState(initialFormValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
@@ -42,16 +42,16 @@ export default function ItemForm() {
   }
 
   const onSubmit = (e) => {
-    // e.preventDefault()
-    // axiosWithAuth()
-    //   .post('/tech_items', formValues)
-    //   .then((res) => {
-    //     console.log(res);
-    //     setItemsList(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   })
+    e.preventDefault()
+    axiosWithAuth()
+      .post('/tech_items', formValues)
+      .then((res) => {
+        console.log(res);
+        props.setItemsList(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
   useEffect(() => {
