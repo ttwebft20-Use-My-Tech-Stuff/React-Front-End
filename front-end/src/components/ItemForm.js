@@ -11,33 +11,33 @@ const initialFormValues = {
   owner_username: ""
 }
 
-// const initialFormErrors = {
-//   item_name: "",
-//   category: "",
-//   price: "",
-//   owner_username: ""
-// }
+const initialFormErrors = {
+  item_name: "",
+  category: "",
+  price: "",
+  owner_username: ""
+}
 
 const initialDisabled = true
 
 export default function ItemForm() {
 
   const [formValues, setFormValues] = useState(initialFormValues)
-  // const [formErrors, setFormErrors] = useState(initialFormErrors)
+  const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled);
 
   const onChange = (e) => {
     const { name, value } = e.target
     yup.reach(itemSchema, name)
-    .validate(value)
+      .validate(value)
       .then(() => {
-        setFormErrors({...formErrors, [name]: ''})
+        setFormErrors({ ...formErrors, [name]: '' })
       })
       .catch(err => {
-        setFormErrors({...formErrors, [name]: err.errors[0]})
-      
+        setFormErrors({ ...formErrors, [name]: err.errors[0] })
+
       })
-    
+
     setFormValues({ ...formValues, [name]: value })
   }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar'
-// import ItemsList from './ItemsList';
+import ItemsList from './ItemsList';
 import ItemForm from './ItemForm'
 
 const InitialForm = false
@@ -14,11 +14,11 @@ const userInfo = {
 
 const items = [
   {
-  category: "Camera",
-  description: "Canon 1D camera body, backup battery and charger included. No lens.",
-  item_name: "Canon 1D",
-  owner_username: 'krsnyder',
-  price: "27.99",
+    category: "Camera",
+    description: "Canon 1D camera body, backup battery and charger included. No lens.",
+    item_name: "Canon 1D",
+    owner_username: 'krsnyder',
+    price: "27.99",
   },
   {
     category: "Television",
@@ -40,7 +40,7 @@ const items = [
     item_name: "Canon EF 11-24mm F4L USM",
     owner_username: 'krsnyder',
     price: "14.49",
-    }
+  }
 ]
 
 // props will contain all user info and items
@@ -52,7 +52,7 @@ export default function Profiles() {
   const onClick = () => {
     setDisplayForm(!displayForm)
   }
-  
+
   return (
     <div>
       <Navbar />
@@ -61,18 +61,18 @@ export default function Profiles() {
         <div className="user-info">
           <p>Name: {first} {last}</p>
           <p>Username: {username}</p>
-          <p>Email: { email }</p>
-          <p>Zipcode: { zipcode }</p>
+          <p>Email: {email}</p>
+          <p>Zipcode: {zipcode}</p>
         </div>
 
         <button onClick={onClick}>Add Item</button>
 
         {displayForm && <ItemForm />}
 
-        
-          <div className="content">
-            <ItemsList items={items}/>
-          </div>
+
+        <div className="content">
+          <ItemsList items={items} />
+        </div>
       </div>
     </div>
   )
