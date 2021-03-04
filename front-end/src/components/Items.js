@@ -8,19 +8,19 @@ export default function Items(props) {
 
   const getItemsList = () => {
     axiosWithAuth()
-      .get('/tech_items')
+      .get("/tech_items")
       .then((res) => {
         console.log(res);
         setItemsList(res.data);
       })
       .catch((err) => {
         console.log(err);
-      })
-  }
+      });
+  };
 
   useEffect(() => {
     getItemsList();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -28,6 +28,7 @@ export default function Items(props) {
       <div className="itemscont">
         <div className="content-container">
           <h2>Tech Rentals. Right to your Door.</h2>
+
           <div className="content">
             <ItemsList items={itemsList} setItemsList={setItemsList} />
           </div>
