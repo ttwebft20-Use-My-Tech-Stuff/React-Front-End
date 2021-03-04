@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import itemSchema from '../validation/itemSchema'
+import * as yup from 'yup'
 
 const initialFormValues = {
   item_name: "",
@@ -25,6 +26,16 @@ export default function ItemForm() {
 
   const onChange = (e) => {
     const { name, value } = e.target
+    yup.reach(itemSchema, name)
+    .validate(value)
+      .then(() => {
+        setFormErrors({...formErrors, [name]: ''})
+      })
+      .catch(err => {
+        setFormErrors({...formErrors, [name]: err.errors[0]})
+      
+      })
+    
     setFormValues({ ...formValues, [name]: value })
   }
 
@@ -93,6 +104,13 @@ export default function ItemForm() {
         >
           Submit
         </button>
+
+        <div className="errors">
+          <div>{formErrors.item_name}</div>
+          <div>{formErrors.price}</div>
+          <div>{formErrors.category}</div>
+          <div>{formErrors.owner_username}</div>
+        </div>
 
       </form>
     </div>
