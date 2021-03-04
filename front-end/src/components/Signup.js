@@ -12,7 +12,7 @@ const initialForm = {
   email: "",
   zipcode: "",
   password: "",
-  confirm: "",
+  // confirm: "",
   role: ""
 };
 
@@ -24,7 +24,7 @@ const initialFormErrors = {
   email: "",
   zipcode: "",
   password: "",
-  confirm: "",
+  // confirm: "",
   role: ""
 };
 
@@ -167,7 +167,7 @@ export default function Signup() {
           </label>
         </div>
 
-        <div className="input">
+        {/* <div className="input">
           <label>
             Confirm Password:
             <input
@@ -177,7 +177,7 @@ export default function Signup() {
               onChange={onChange}
             />
           </label>
-        </div>
+        </div> */}
 
         <div>
           <label>
