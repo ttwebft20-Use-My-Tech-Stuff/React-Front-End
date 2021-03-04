@@ -4,6 +4,7 @@ import ItemCard from './ItemCard';
 import { fetchItems } from '../redux/itemsActions';
 
 function ItemsList({ items }) {
+
   return (
     <div className="cardrow">
       {items.map((item) => {
