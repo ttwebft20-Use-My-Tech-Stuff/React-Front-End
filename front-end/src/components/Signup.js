@@ -180,7 +180,8 @@ export default function Signup() {
         </div>
 
         <div>
-          <label>User Type:
+          <label>
+            User Type:
             <select
               onChange={onChange}
               value={formValues.role}
@@ -208,6 +209,7 @@ export default function Signup() {
           <div>{formErrors.zipcode}</div>
           <div>{formErrors.password}</div>
           <div>{formErrors.confirm}</div>
+          <div>{formErrors.role}</div>
         </div>
 
         {confirmation && <p>Thanks for registering!</p>}
