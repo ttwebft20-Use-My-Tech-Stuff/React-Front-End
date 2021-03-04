@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import itemSchema from '../validation/itemSchema';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+// import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const initialFormValues = {
   item_name: "",
@@ -9,19 +9,19 @@ const initialFormValues = {
   owner_username: ""
 }
 
-const initialFormErrors = {
-  item_name: "",
-  category: "",
-  price: "",
-  owner_username: ""
-}
+// const initialFormErrors = {
+//   item_name: "",
+//   category: "",
+//   price: "",
+//   owner_username: ""
+// }
 
 const initialDisabled = true
 
 export default function ItemForm() {
 
   const [formValues, setFormValues] = useState(initialFormValues)
-  const [formErrors, setFormErrors] = useState(initialFormErrors)
+  // const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled);
 
   const onChange = (e) => {
