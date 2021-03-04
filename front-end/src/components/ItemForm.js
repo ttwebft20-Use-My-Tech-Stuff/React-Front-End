@@ -36,6 +36,7 @@ export default function ItemForm() {
 
   useEffect(() => {
     itemSchema.isValid(formValues).then((valid) => setDisabled(!valid));
+    console.log(formValues)
   }, [formValues]);
 
   return (
@@ -53,7 +54,11 @@ export default function ItemForm() {
 
         <label>
           Category:
-          <select name="category">
+          <select
+            name="category"
+            value={formValues.category}
+            onChange={onChange}
+          >
             <option value="">--Select--</option>
             <option value="camera">Camera</option>
             <option value="television">Television</option>
@@ -67,6 +72,16 @@ export default function ItemForm() {
             type="text"
             name="price"
             value={formValues.price}
+            onChange={onChange}
+          />
+        </label>
+
+        <label>
+          Username:
+          <input
+            type="text"
+            name="owner_username"
+            value={formValues.owner_username}
             onChange={onChange}
           />
         </label>
