@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import itemSchema from '../validation/itemSchema';
+import React, { useState, useEffect } from 'react'
+import itemSchema from '../validation/itemSchema'
 // import { axiosWithAuth } from '../utils/axiosWithAuth';
+import * as yup from 'yup'
+
 
 const initialFormValues = {
   item_name: "",
@@ -26,6 +28,16 @@ export default function ItemForm() {
 
   const onChange = (e) => {
     const { name, value } = e.target
+    yup.reach(itemSchema, name)
+    .validate(value)
+      .then(() => {
+        setFormErrors({...formErrors, [name]: ''})
+      })
+      .catch(err => {
+        setFormErrors({...formErrors, [name]: err.errors[0]})
+      
+      })
+    
     setFormValues({ ...formValues, [name]: value })
   }
 
@@ -44,6 +56,7 @@ export default function ItemForm() {
 
   useEffect(() => {
     itemSchema.isValid(formValues).then((valid) => setDisabled(!valid));
+    console.log(formValues)
   }, [formValues]);
 
   return (
@@ -61,7 +74,11 @@ export default function ItemForm() {
 
         <label>
           Category:
-          <select name="category">
+          <select
+            name="category"
+            value={formValues.category}
+            onChange={onChange}
+          >
             <option value="">--Select--</option>
             <option value="camera">Camera</option>
             <option value="television">Television</option>
@@ -79,6 +96,16 @@ export default function ItemForm() {
           />
         </label>
 
+        <label>
+          Username:
+          <input
+            type="text"
+            name="owner_username"
+            value={formValues.owner_username}
+            onChange={onChange}
+          />
+        </label>
+
         <button
           type="submit"
           name="submit"
@@ -86,6 +113,13 @@ export default function ItemForm() {
         >
           Submit
         </button>
+
+        <div className="errors">
+          <div>{formErrors.item_name}</div>
+          <div>{formErrors.price}</div>
+          <div>{formErrors.category}</div>
+          <div>{formErrors.owner_username}</div>
+        </div>
 
       </form>
     </div>
