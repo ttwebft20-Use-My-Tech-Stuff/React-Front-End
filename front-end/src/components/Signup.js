@@ -12,7 +12,6 @@ const initialForm = {
   email: "",
   zipcode: "",
   password: "",
-  // confirm: "",
   role: ""
 };
 
@@ -24,7 +23,6 @@ const initialFormErrors = {
   email: "",
   zipcode: "",
   password: "",
-  // confirm: "",
   role: ""
 };
 
@@ -166,18 +164,6 @@ export default function Signup() {
             />
           </label>
         </div>
-
-        {/* <div className="input">
-          <label>
-            Confirm Password:
-            <input
-              name="confirm"
-              type="password"
-              value={formValues.confirm}
-              onChange={onChange}
-            />
-          </label>
-        </div> */}
 
         <div>
           <label>
