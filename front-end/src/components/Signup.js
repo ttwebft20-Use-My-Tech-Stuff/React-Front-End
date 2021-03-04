@@ -30,14 +30,14 @@ const initialFormErrors = {
 
 
 const initialDisabled = true;
-const initialConfirmation = [false];
+// const initialConfirmation = [false];
 
 export default function Signup() {
   const [users, setUsers] = useState([])
   const [formValues, setFormValues] = useState(initialForm);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
-  const [confirmation, setConfirmation] = useState(initialConfirmation);
+  // const [confirmation, setConfirmation] = useState(initialConfirmation);
   const { push } = useHistory();
 
   const onChange = (e) => {
@@ -212,7 +212,7 @@ export default function Signup() {
           <div>{formErrors.role}</div>
         </div>
 
-        {confirmation && <p>Thanks for registering!</p>}
+        {/* {confirmation && <p>Thanks for registering!</p>} */}
       </form>
     </div>
   );

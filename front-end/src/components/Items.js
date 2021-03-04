@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-import ItemsList from "./ItemsList";
-
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import ItemsList from './ItemsList';
 import Navbar from "../components/Navbar";
 
 export default function Items(props) {
