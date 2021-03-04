@@ -30,10 +30,9 @@ function Landing() {
       <section id="one" className="wrapper style1 special">
         <div className="inner">
           <header className="major">
-            <h2>Try the latest inventions today</h2>
+            <h2>Try the latest gear today</h2>
             <p>
-              Discover great products. Rent directly from owners.
-              <br />
+              Discover great products. Rent directly from owners. <br />
               Or add your own product, make money and get some feedback.
             </p>
           </header>
@@ -64,9 +63,7 @@ function Landing() {
           <div className="content">
             <h2>Stay In The Know</h2>
             <p>
-              Learn about the latest trends in the world of science and
-              technology. Less talk, more hands-on practical experience. Most
-              useful and revolutionary products at the touch of a button.
+              Learn about the latest trends in the world of science and technology. Less talk, more hands-on practical experience. Most useful and revolutionary products at the touch of a button.
             </p>
           </div>
         </section>
@@ -77,10 +74,7 @@ function Landing() {
           <div className="content">
             <h2>Go Green</h2>
             <p>
-              Ownership is overrated. Save money and help <br /> the
-              environment. With Wonder you can get the <br /> latest products
-              while owning less and experiencing more. <br /> All our packaging
-              is reusable and made from recycled materials.
+              Save money and help the environment. With Use My Tech Stuff you can get the latest products while owning less and experiencing more. All our packaging is reusable and made from recycled materials.
             </p>
           </div>
         </section>
@@ -91,9 +85,7 @@ function Landing() {
           <div className="content">
             <h2>Improve Your Life</h2>
             <p>
-              Discover new opportunities for yourself. With latest inventions,
-              there are many new ways to be creative, more productive and solve
-              day-to-day issues. There's an invention for every kind of problem.
+              Discover new opportunities for yourself. With latest inventions, there are many new ways to be creative, more productive and solve day-to-day issues. There's an invention for every kind of problem.
             </p>
           </div>
         </section>
@@ -103,65 +95,45 @@ function Landing() {
           <header className="major">
             <h2>Explore, make your choice and book it</h2>
             <p>
-              We are striving to bring the latest and hottest Tech innovations.
-              Explore our list for inspiration, experiments or just for fun.
-              Make your pick, and book it to try for a few days.
+              We are striving to bring the latest and hottest Tech innovations. Explore our list for inspiration, experiments or just for fun. Make your pick, and book it to try for a few days.
             </p>
           </header>
           <ul className="features">
             <li className="icon fa-paper-plane">
               <h3>We will deliver your item</h3>
               <p>
-                We deliver every day Monday to Sunday including bank holidays.
-                You'll have tracking information so you know what time to expect
-                deliveries.
+                We deliver every day Monday to Sunday including bank holidays. You'll have tracking information so you know what time to expect deliveries.
               </p>
             </li>
             <li className="icon solid fa-laptop">
               <h3>Ready to go, out of the box</h3>
               <p>
-                We know that feeling of unpacking something new. That's why
-                we're keeping the excitement of discovery at the heart of every
-                order, while taking care of any boring setup or cabling that may
-                be necessary. Just plug it in and you're good to go. Trying
-                something new has never been easier.
+                We know that feeling of unpacking something new. That's why we're keeping the excitement of discovery at the heart of every order, while taking care of any boring setup or cabling that may be necessary. Just plug it in and you're good to go. Trying something new has never been easier.
               </p>
             </li>
             <li className="icon solid fa-code">
               <h3>We have it covered</h3>
               <p>
-                We know that accidents sometimes happen. All products rented
-                from us are covered from accidental damage, including damage
-                caused by liquids (just in case you spill a drink over it). The
-                only thing we ask is that you treat the rented product as if it
-                was your own. They are rare finds, and makers put their hearts
-                and souls into bringing them to life.
+                We know that accidents sometimes happen. All products rented from us are covered from accidental damage, including damage caused by liquids (just in case you spill a drink over it). The only thing we ask is that you treat the rented product as if it was your own. They are rare finds, and makers put their hearts and souls into bringing them to life.
               </p>
             </li>
             <li className="icon solid fa-headphones-alt">
               <h3>When finished, our courier picks it up</h3>
               <p>
-                When time comes, just put it back in the box and give it to our
-                courier. If you feel like buying the product, inventors usually
+                When time comes, just put it back in the box and give it to our courier. If you feel like buying the product, owners usually
                 include offers to purchase a brand new one and make it your own.
               </p>
             </li>
             <li className="icon fa-heart">
               <h3>Try before you buy</h3>
               <p>
-                It's always better to experience a product. Show stores are
-                great, but they're never as comfortable as home. With Wonder,
-                customers can try your product exactly how they would if they
-                purchased it.
+                It's always better to experience a product. Show stores are great, but they're never as comfortable as home. With Use My Tech Stuff, customers can try a product exactly how they would if they purchased it.
               </p>
             </li>
             <li className="icon fa-flag">
               <h3>Have fun</h3>
               <p>
-                Trying new things with Us is beautifully easy, simple and
-                inspirational. Every product comes pre-configured and ready to
-                try - just plug and play. We are completely transparent, so you
-                know exactly what you’re paying for.
+                Trying new things with us is beautifully easy, simple and inspirational. Every product comes pre-configured and ready to try - just plug and play. We are completely transparent, so you know exactly what you’re paying for.
               </p>
             </li>
           </ul>
@@ -171,11 +143,9 @@ function Landing() {
       <section id="cta" className="wrapper style4">
         <div className="inner">
           <header>
-            <h2>Anyone can be an inventor.</h2>
+            <h2>Anyone can join.</h2>
             <p>
-              We're a community of makers and enthusiasts, pushing the
-              boundaries of what's possible. We believe humans are amazing
-              beings and can solve any problems when working together.
+              We're a community of makers and enthusiasts, pushing the boundaries of what's possible. We believe humans are amazing beings and can solve any problems when working together.
             </p>
           </header>
           <ul className="actions stacked">
