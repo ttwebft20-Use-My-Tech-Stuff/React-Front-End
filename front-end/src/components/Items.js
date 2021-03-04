@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import ItemsList from './ItemsList';
-import ItemCard from './ItemCard';
 import Navbar from "../components/Navbar";
-import placeholder from "../images/placeholder.webp";
 
 export default function Items(props) {
   const [itemsList, setItemsList] = useState([]);
