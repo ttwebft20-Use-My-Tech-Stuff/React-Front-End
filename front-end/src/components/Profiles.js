@@ -36,6 +36,13 @@ const items = [
     item_name: "Canon EF 11-24mm F4L USM",
     owner_username: 'krsnyder',
     price: "14.49",
+  },
+  {
+    category: "Camera",
+    description: "To experience the ultimate in wide-angle photography, the EF 11-24mm f/4L USM brings L-series construction and optics to the widest zoom lens Canon has ever made. ",
+    item_name: "Canon EF 11-24mm F4L USM",
+    owner_username: 'krsnyder',
+    price: "14.49",
     }
 ]
 

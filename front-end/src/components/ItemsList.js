@@ -3,7 +3,7 @@ import ItemCard from './ItemCard'
 
 function ItemsList({ items }) {
     return (
-        <div>
+        <div className="itemscard">
             {
                 items.map(item => {
                     return <ItemCard key={item.item_name} item={item} />

@@ -4304,3 +4304,11 @@ form {
   align-items: center;
   justify-content: center;
 }
+
+.itemscard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 5vw;
+}
