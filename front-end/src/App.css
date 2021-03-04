@@ -4175,6 +4175,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 .content-container {
   width: 90%;
@@ -4190,16 +4191,22 @@ form {
   border-bottom: white 3px solid;
   padding: 12px;
 }
-.content {
+.cardrow {
   display: flex;
+
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: space-between;
+  justify-content: space-evenly;
+  border: 1px solid white;
+  align-items: center;
+  align-content: center;
+  width: 100%;
 }
 
 .card {
   width: 30%;
   height: auto;
+  margin-top: 30px;
   margin-bottom: 30px;
   padding-bottom: 30px;
   border-radius: 10px;
@@ -4207,6 +4214,7 @@ form {
   text-align: center;
   overflow: hidden;
   box-shadow: rgb(0 0 0 / 20%) 0px 4px 44px 6px;
+
   /* rgb(0 0 0 / 6%) 0px 2px 24px 6px; */
 }
 .card button {
