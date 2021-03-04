@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import itemSchema from '../validation/itemSchema'
+import React, { useState, useEffect } from 'react';
+import itemSchema from '../validation/itemSchema';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const initialFormValues = {
   item_name: "",
@@ -29,9 +30,16 @@ export default function ItemForm() {
   }
 
   const onSubmit = (e) => {
-    e.preventDefault()
-    //Need to make a post request to send the information
-    console.log("OK")
+    // e.preventDefault()
+    // axiosWithAuth()
+    //   .post('/tech_items', formValues)
+    //   .then((res) => {
+    //     console.log(res);
+    //     setItemsList(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   })
   }
 
   useEffect(() => {

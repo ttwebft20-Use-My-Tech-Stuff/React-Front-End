@@ -1,5 +1,7 @@
-import React from "react";
-import ItemCard from "./ItemCard";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import ItemCard from './ItemCard';
+import { fetchItems } from '../redux/itemsActions';
 
 function ItemsList({ items }) {
   return (
@@ -11,4 +13,11 @@ function ItemsList({ items }) {
   );
 }
 
-export default ItemsList;
+// const mapStateToProps = (state) => {
+//     return {
+//         items: state.items,
+//         isLoading: state.isLoading
+//     }
+// }
+
+export default connect(null, { fetchItems })(ItemsList);
