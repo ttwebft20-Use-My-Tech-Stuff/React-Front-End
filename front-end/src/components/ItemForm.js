@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import itemSchema from '../validation/itemSchema'
+// import { axiosWithAuth } from '../utils/axiosWithAuth';
 import * as yup from 'yup'
+
 
 const initialFormValues = {
   item_name: "",
@@ -9,19 +11,19 @@ const initialFormValues = {
   owner_username: ""
 }
 
-const initialFormErrors = {
-  item_name: "",
-  category: "",
-  price: "",
-  owner_username: ""
-}
+// const initialFormErrors = {
+//   item_name: "",
+//   category: "",
+//   price: "",
+//   owner_username: ""
+// }
 
 const initialDisabled = true
 
 export default function ItemForm() {
 
   const [formValues, setFormValues] = useState(initialFormValues)
-  const [formErrors, setFormErrors] = useState(initialFormErrors)
+  // const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled);
 
   const onChange = (e) => {
@@ -40,9 +42,16 @@ export default function ItemForm() {
   }
 
   const onSubmit = (e) => {
-    e.preventDefault()
-    //Need to make a post request to send the information
-    console.log("OK")
+    // e.preventDefault()
+    // axiosWithAuth()
+    //   .post('/tech_items', formValues)
+    //   .then((res) => {
+    //     console.log(res);
+    //     setItemsList(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   })
   }
 
   useEffect(() => {

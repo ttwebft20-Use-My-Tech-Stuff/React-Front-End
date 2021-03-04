@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
-import { useRouteMatch, useParams } from 'react-router-dom'
 import Navbar from './Navbar'
-import ItemsList from './ItemsList';
-import ItemCard from './ItemCard';
-import placeholder from "../images/placeholder.webp";
+// import ItemsList from './ItemsList';
 import ItemForm from './ItemForm'
 
 const InitialForm = false
@@ -77,7 +74,6 @@ export default function Profiles() {
             <ItemsList items={items}/>
           </div>
       </div>
-
     </div>
   )
 }
