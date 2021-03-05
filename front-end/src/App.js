@@ -16,7 +16,6 @@ function App() {
     axiosWithAuth()
       .get("/tech_items")
       .then((res) => {
-        console.log(res);
         setItemsList(res.data);
       })
       .catch((err) => {
