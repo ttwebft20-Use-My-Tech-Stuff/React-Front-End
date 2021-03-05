@@ -1,47 +1,45 @@
 // import axios from 'axios'
-import React, { useEffect, useState } from "react";
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
-import * as yup from "yup";
-import signupSchema from "../validation/signupSchema";
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
+import * as yup from 'yup'
+import signupSchema from '../validation/signupSchema'
 
 const initialForm = {
-  first_name: "",
-  last_name: "",
-  username: "",
-  email: "",
-  zipcode: "",
-  password: "",
+  first_name: '',
+  last_name: '',
+  username: '',
+  email: '',
+  zipcode: '',
+  password: '',
   // confirm: "",
-  role: ""
-};
-
+  role: '',
+}
 
 const initialFormErrors = {
-  first_name: "",
-  last_name: "",
-  username: "",
-  email: "",
-  zipcode: "",
-  password: "",
+  first_name: '',
+  last_name: '',
+  username: '',
+  email: '',
+  zipcode: '',
+  password: '',
   // confirm: "",
-  role: ""
-};
+  role: '',
+}
 
-
-const initialDisabled = true;
+const initialDisabled = true
 // const initialConfirmation = [false];
 
 export default function Signup() {
   const [users, setUsers] = useState([])
-  const [formValues, setFormValues] = useState(initialForm);
-  const [formErrors, setFormErrors] = useState(initialFormErrors);
-  const [disabled, setDisabled] = useState(initialDisabled);
+  const [formValues, setFormValues] = useState(initialForm)
+  const [formErrors, setFormErrors] = useState(initialFormErrors)
+  const [disabled, setDisabled] = useState(initialDisabled)
   // const [confirmation, setConfirmation] = useState(initialConfirmation);
-  const { push } = useHistory();
+  const { push } = useHistory()
 
   const onChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     yup
       .reach(signupSchema, name)
       .validate(value)
@@ -49,14 +47,14 @@ export default function Signup() {
         setFormErrors({ ...formErrors, [name]: '' })
       })
       .catch((err) => {
-        setFormErrors({ ...formErrors, [name]: err.errors[0] });
-      });
+        setFormErrors({ ...formErrors, [name]: err.errors[0] })
+      })
 
-    setFormValues({ ...formValues, [name]: value });
-  };
+    setFormValues({ ...formValues, [name]: value })
+  }
 
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const newUser = {
       first_name: formValues.first_name.trim(),
       last_name: formValues.last_name.trim(),
@@ -64,103 +62,106 @@ export default function Signup() {
       email: formValues.email.trim(),
       zipcode: formValues.zipcode,
       password: formValues.password.trim(),
-      role: formValues.role.trim()
+      role: formValues.role.trim(),
     }
-    postUser(newUser);
-  };
+    postUser(newUser)
+  }
 
   const postUser = (newUser) => {
     axios
-      .post('http://ttwebft20-use-my-tech-stuff.herokuapp.com/api/auth/register', newUser)
+      .post(
+        'https://ttwebft20-use-my-tech-stuff.herokuapp.com/api/auth/register',
+        newUser
+      )
       .then((res) => {
-        console.log(res);
-        setUsers([...users, newUser]);
-        push('/login');
+        console.log(res)
+        setUsers([...users, newUser])
+        push('/login')
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err)
       })
   }
 
   const onCancel = () => {
-    push('/');
+    push('/')
   }
 
   useEffect(() => {
-    signupSchema.isValid(formValues).then((valid) => setDisabled(!valid));
-  }, [formValues]);
+    signupSchema.isValid(formValues).then((valid) => setDisabled(!valid))
+  }, [formValues])
 
   return (
     // Sign up needs first_name, last_name, username, email, zip, password and confirm
-    <div className="signup-container">
+    <div className='signup-container'>
       <h2>Sign up here!</h2>
       <form onSubmit={onSubmit}>
-        <div className="input">
+        <div className='input'>
           <label>
             First Name:
             <input
-              name="first_name"
-              type="text"
+              name='first_name'
+              type='text'
               value={formValues.first_name}
               onChange={onChange}
             />
           </label>
         </div>
 
-        <div className="input">
+        <div className='input'>
           <label>
             Last Name:
             <input
-              name="last_name"
-              type="text"
+              name='last_name'
+              type='text'
               value={formValues.last_name}
               onChange={onChange}
             />
           </label>
         </div>
 
-        <div className="input">
+        <div className='input'>
           <label>
             Username:
             <input
-              name="username"
-              type="text"
+              name='username'
+              type='text'
               value={formValues.username}
               onChange={onChange}
             />
           </label>
         </div>
 
-        <div className="input">
+        <div className='input'>
           <label>
             Email:
             <input
-              name="email"
-              type="text"
+              name='email'
+              type='text'
               value={formValues.email}
               onChange={onChange}
             />
           </label>
         </div>
 
-        <div className="input">
+        <div className='input'>
           <label>
             Zipcode:
             <input
-              name="zipcode"
-              type="text"
+              name='zipcode'
+              type='text'
               value={formValues.zipcode}
               onChange={onChange}
             />
           </label>
         </div>
 
-        <div className="input">
+        <div className='input'>
           <label>
             Password:
             <input
-              name="password"
-              type="password"
+              name='password'
+              type='password'
               value={formValues.password}
               onChange={onChange}
             />
@@ -182,11 +183,7 @@ export default function Signup() {
         <div>
           <label>
             User Type:
-            <select
-              onChange={onChange}
-              value={formValues.role}
-              name='role'
-            >
+            <select onChange={onChange} value={formValues.role} name='role'>
               <option value=''>- - select one - -</option>
               <option value='owner'>Owner</option>
               <option value='renter'>Renter</option>
@@ -194,14 +191,14 @@ export default function Signup() {
           </label>
         </div>
 
-        <div id="buttons">
-          <button name="submit" type="submit" disabled={disabled}>
+        <div id='buttons'>
+          <button name='submit' type='submit' disabled={disabled}>
             Submit
           </button>
           <button onClick={onCancel}>Cancel</button>
         </div>
 
-        <div className="errors">
+        <div className='errors'>
           <div>{formErrors.first_name}</div>
           <div>{formErrors.last_name}</div>
           <div>{formErrors.username}</div>
@@ -215,5 +212,5 @@ export default function Signup() {
         {/* {confirmation && <p>Thanks for registering!</p>} */}
       </form>
     </div>
-  );
+  )
 }
