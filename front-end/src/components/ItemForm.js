@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react'
 import itemSchema from '../validation/itemSchema'
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import * as yup from 'yup'
-
+import { useHistory } from 'react-router-dom';
 
 const initialFormValues = {
   item_name: "",
   category: "",
+  description: "",
   price: "",
   owner_username: ""
 }
@@ -14,6 +15,7 @@ const initialFormValues = {
 const initialFormErrors = {
   item_name: "",
   category: "",
+  description: "",
   price: "",
   owner_username: ""
 }
@@ -21,10 +23,10 @@ const initialFormErrors = {
 const initialDisabled = true
 
 export default function ItemForm(props) {
-
   const [formValues, setFormValues] = useState(initialFormValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled);
+  const { push } = useHistory();
 
   const onChange = (e) => {
     const { name, value } = e.target
@@ -46,17 +48,18 @@ export default function ItemForm(props) {
     axiosWithAuth()
       .post('/tech_items', formValues)
       .then((res) => {
-        console.log(res);
-        props.setItemsList(res.data);
+        props.items.push(res.data)
+        props.setItemsList(props.items);
+        push('./items');
       })
       .catch((err) => {
         console.log(err);
       })
+    setFormValues(initialFormValues);
   }
 
   useEffect(() => {
     itemSchema.isValid(formValues).then((valid) => setDisabled(!valid));
-    console.log(formValues)
   }, [formValues]);
 
   return (
@@ -84,6 +87,18 @@ export default function ItemForm(props) {
             <option value="television">Television</option>
             <option value="party-equipment">Party Equipment</option>
           </select>
+        </label>
+
+        <label>
+          Description:
+          <textarea
+            type="text"
+            name="description"
+            value={formValues.description}
+            onChange={onChange}
+            rows='4'
+            cols='50'
+          />
         </label>
 
         <label>
@@ -117,6 +132,7 @@ export default function ItemForm(props) {
         <div className="errors">
           <div>{formErrors.item_name}</div>
           <div>{formErrors.price}</div>
+          <div>{formErrors.description}</div>
           <div>{formErrors.category}</div>
           <div>{formErrors.owner_username}</div>
         </div>
