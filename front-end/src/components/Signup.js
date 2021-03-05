@@ -6,26 +6,25 @@ import * as yup from 'yup'
 import signupSchema from '../validation/signupSchema'
 
 const initialForm = {
-  first_name: '',
-  last_name: '',
-  username: '',
-  email: '',
-  zipcode: '',
-  password: '',
-  // confirm: "",
-  role: '',
-}
+  first_name: "",
+  last_name: "",
+  username: "",
+  email: "",
+  zipcode: "",
+  password: "",
+  role: ""
+};
+
 
 const initialFormErrors = {
-  first_name: '',
-  last_name: '',
-  username: '',
-  email: '',
-  zipcode: '',
-  password: '',
-  // confirm: "",
-  role: '',
-}
+  first_name: "",
+  last_name: "",
+  username: "",
+  email: "",
+  zipcode: "",
+  password: "",
+  role: ""
+};
 
 const initialDisabled = true
 // const initialConfirmation = [false];
@@ -167,18 +166,6 @@ export default function Signup() {
             />
           </label>
         </div>
-
-        {/* <div className="input">
-          <label>
-            Confirm Password:
-            <input
-              name="confirm"
-              type="password"
-              value={formValues.confirm}
-              onChange={onChange}
-            />
-          </label>
-        </div> */}
 
         <div>
           <label>
